@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>Edit Profile</h2>
+<div fxLayout="column">
+<div mat-dialog-content fxLayoutAlign="row">
+  <mat-form-field appearance="fill">
+    <mat-label>First Name</mat-label>
+    <input matInput value="{{data.firstName}}">
+  </mat-form-field>
+  <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
+    <mat-label>First Name</mat-label>
+    <input matInput value="{{data.lastName}}">
+  </mat-form-field>
+</div>
+  <div mat-dialog-content fxLayoutAlign="row">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput value="{{data.recentEducation}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
+      <mat-label>First Name</mat-label>
+      <input matInput value="{{data.graduationDate}}">
+    </mat-form-field>
+  </div>
+
+  <div mat-dialog-content fxLayoutAlign="row">
+    <mat-form-field appearance="fill">
+      <mat-label>First Name</mat-label>
+      <input matInput value="{{data.degree}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
+      <mat-label>First Name</mat-label>
+      <input matInput value="{{data.degreeName}}">
+    </mat-form-field>
+  </div>
+</div>
+
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close>Save</button>
+</div>

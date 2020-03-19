@@ -1,0 +1,34 @@
+<h2 mat-dialog-title>Edit Experience</h2>
+<div fxLayout="column">
+  <div mat-dialog-content fxLayoutAlign="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Title</mat-label>
+      <input matInput value="{{data.title}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
+      <mat-label>Company</mat-label>
+      <input matInput value="{{data.company}}">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-content fxLayoutAlign="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Start Date</mat-label>
+      <input matInput value="{{data.startDate}}">
+    </mat-form-field>
+    <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
+      <mat-label>End Date</mat-label>
+      <input matInput value="{{data.endDate}}">
+    </mat-form-field>
+  </div>
+  <div mat-dialog-content fxLayoutAlign="row">
+    <mat-form-field appearance="fill">
+      <mat-label>Description</mat-label>
+      <textarea matInput value="{{data.description}}"></textarea>
+    </mat-form-field>
+  </div>
+
+
+<div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
+  <button mat-button mat-dialog-close>Cancel</button>
+  <button mat-button mat-dialog-close>Save</button>
+</div>
