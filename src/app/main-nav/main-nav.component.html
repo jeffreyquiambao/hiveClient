@@ -19,11 +19,11 @@
         *ngIf="isHandset$ | async">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
-      <!-- <img src="../assets/hiveLogo.svg" height="60" width="60"> -->
-      <a  routerLink="dashboard">Hive</a>
+      <img src="http://localhost:63342/hiveClient/hiveClient/src/app/assets/hiveLogo.svg?_ijt=2i2b7d5b0ug8r9ie8u5dpoqac5g" height="60" width="60">
+      <a  [routerLink]="['/dashboard', userId]" >Hive</a>
       <span class="spacer"> </span>
-      <a  routerLink="search">Search for Internships</a>
-      <a  routerLink="profile">Profile</a>
+      <a  [routerLink]="['/search', userId]">Search for Internships</a>
+      <a  [routerLink]="['/profile', userId]">Profile</a>
     </mat-toolbar>
     <ng-content>
     </ng-content>

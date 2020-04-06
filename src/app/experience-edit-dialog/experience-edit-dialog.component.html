@@ -1,34 +1,35 @@
 <h2 mat-dialog-title>Edit Experience</h2>
-<div fxLayout="column">
+  <form [formGroup]="updatedUserExperienceForm" (ngSubmit)="submitUpdatedUserExperience()" fxLayout="column">
   <div mat-dialog-content fxLayoutAlign="row">
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>
-      <input matInput value="{{data.title}}">
+      <input formControlName="positionName" matInput value="{{experienceData.positionName}}">
     </mat-form-field>
     <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
       <mat-label>Company</mat-label>
-      <input matInput value="{{data.company}}">
+      <input formControlName="companyName" matInput value="{{experienceData.companyName}}">
     </mat-form-field>
   </div>
   <div mat-dialog-content fxLayoutAlign="row">
     <mat-form-field appearance="fill">
       <mat-label>Start Date</mat-label>
-      <input matInput value="{{data.startDate}}">
+      <input formControlName="positionStartDate" matInput value="{{experienceData.positionStartDate}}">
     </mat-form-field>
     <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
       <mat-label>End Date</mat-label>
-      <input matInput value="{{data.endDate}}">
+      <input formControlName="positionEndDate" matInput value="{{experienceData.positionEndDate}}">
     </mat-form-field>
   </div>
   <div mat-dialog-content fxLayoutAlign="row">
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea matInput value="{{data.description}}"></textarea>
+      <textarea formControlName="positionDescription" matInput value="{{experienceData.positionDescription}}"></textarea>
     </mat-form-field>
   </div>
 
 
 <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button mat-dialog-close>Save</button>
+  <button mat-button mat-dialog-close type="submit">Save</button>
 </div>
+  </form>

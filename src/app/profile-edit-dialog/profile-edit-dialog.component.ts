@@ -14,13 +14,17 @@ export interface ProfileData {
   templateUrl: './profile-edit-dialog.component.html',
   styleUrls: ['./profile-edit-dialog.component.css']
 })
+
+
 export class ProfileEditDialogComponent {
+  givenProfileData: ProfileData;
   constructor(
     public dialogRef: MatDialogRef<ProfileEditDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: ProfileData
   ) { }
 
   ngOnInit() {
+    this.givenProfileData = this.data;
   }
 
 }

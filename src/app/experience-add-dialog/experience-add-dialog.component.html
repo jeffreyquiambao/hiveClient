@@ -1,34 +1,35 @@
 <h2 mat-dialog-title>Add Experience</h2>
-<div fxLayout="column">
+
+  <form [formGroup] = "userExperienceForm" (ngSubmit)="submitUserExperience()" fxLayout="column">
   <div mat-dialog-content fxLayoutAlign="row">
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>
-      <input matInput>
+      <input formControlName="positionName" matInput>
     </mat-form-field>
     <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
       <mat-label>Company</mat-label>
-      <input matInput value="">
+      <input formControlName="companyName"matInput value="">
     </mat-form-field>
   </div>
   <div mat-dialog-content fxLayoutAlign="row">
     <mat-form-field appearance="fill">
       <mat-label>Start Date</mat-label>
-      <input matInput value="">
+      <input formControlName="positionStartDate" matInput value="">
     </mat-form-field>
     <mat-form-field appearance="fill" [ngStyle]="{'margin-left': '24px'}">
       <mat-label>End Date</mat-label>
-      <input matInput value="">
+      <input formControlName="positionEndDate" matInput value="">
     </mat-form-field>
   </div>
   <div mat-dialog-content fxLayoutAlign="row">
     <mat-form-field appearance="fill">
       <mat-label>Description</mat-label>
-      <textarea matInput value=""></textarea>
+      <textarea formControlName="positionDescription" matInput value=""></textarea>
     </mat-form-field>
   </div>
 
 
   <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button mat-dialog-close>Save</button>
-  </div>
+    <button mat-button mat-dialog-close type="submit">Save</button>
+  </div></form>

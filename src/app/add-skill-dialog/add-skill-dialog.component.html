@@ -1,11 +1,17 @@
 <h2 mat-dialog-title>Add Skill</h2>
+<form [formGroup]="newSkillForm" (ngSubmit)="submitNewSkill()">
   <div mat-dialog-content fxLayoutAlign="row">
-    <mat-form-field appearance="fill">
-      <mat-label>Skill</mat-label>
-      <input matInput>
-    </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Skill</mat-label>
+        <mat-select formControlName="tagId">
+          <mat-option *ngFor="let tag of availableTags" [value]="tag.tagId">
+            {{tag.tagName}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
   </div>
   <div mat-dialog-actions fxLayout="row" fxLayoutAlign="end end">
     <button mat-button mat-dialog-close>Cancel</button>
-    <button mat-button mat-dialog-close>Add</button>
+    <button mat-button mat-dialog-close type="submit">Add</button>
   </div>
+</form>

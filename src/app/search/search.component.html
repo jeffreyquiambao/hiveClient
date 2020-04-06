@@ -1,1 +1,19 @@
-<p>search works!</p>
+<div fxLayout="column" fxLayoutAlign="center center" [ngStyle]="{'margin-top': '16px'}">
+  <form [formGroup]="skillsForm"  (ngSubmit)="submitSearchQuery()">
+    <mat-form-field fxFlex="400px">
+      <mat-label>Search for internships according to skills!</mat-label>
+      <mat-select formControlName="skillsToSearch" multiple>
+        <mat-option *ngFor="let skill of possibleSkills" [value]="skill">{{skill.tagName}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-button color="primary" type="submit" >Search</button>
+  </form>
+  <mat-card  [ngStyle]="{'margin-top': '32px',  'width': 'calc(50%)', 'margin-left': '25px'}">
+    <mat-card-header fxLayout="row">
+      <mat-card-title [ngStyle]="{'font-weight': 'normal', 'width': 'calc(100%)'}">Results</mat-card-title>
+    </mat-card-header>
+    <ng-container>
+      <app-job-card *ngFor="let job of queriedJobs" [job]="job" [userId]="this.userId"></app-job-card>
+    </ng-container>
+  </mat-card>
+</div>

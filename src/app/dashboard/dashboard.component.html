@@ -1,1 +1,20 @@
-<p>dashboard works!</p>
+<div fxLayout="row" fxLayoutAlign="start">
+  <mat-card  [ngStyle]="{'margin-top': '32px',  'width': 'calc(50%)', 'margin-left': '25px'}">
+    <mat-card-header fxLayout="row">
+      <mat-card-title [ngStyle]="{'font-weight': 'normal', 'width': 'calc(100%)'}">Application Manager</mat-card-title>
+    </mat-card-header>
+    <ng-container>
+    <app-job-card *ngFor="let job of savedJobs" [job]="job" [userId]="userId"></app-job-card>
+
+    </ng-container>
+  </mat-card>
+  <mat-card [ngStyle]="{'margin-top': '32px',  'width': 'calc(40%)', 'margin-left': '25px'}">
+    <mat-card-header>
+      <mat-card-title>
+        Recommended Jobs
+      </mat-card-title>
+    </mat-card-header>
+    <app-job-card *ngFor="let job of recommendedJobs" [job]="job" [userId]="userId"></app-job-card>
+  </mat-card>
+
+</div>

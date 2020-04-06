@@ -1,0 +1,86 @@
+<body>
+
+<div fxLayout="column" fxLayoutAlign="center center">
+  <img [ngStyle]="{'margin-left': '8px', 'margin-top': '80px'}" src="http://localhost:63342/hiveClient/hiveClient/src/app/assets/whitelogo.svg?_ijt=sdcg60glh0nmoqprnhbsa0jt8j">
+<h1 class="mat-display-4" [ngStyle]="{'color': 'white', 'margin-bottom': '8px'}">Hive</h1>
+  <h4 class="mat-h4" [ngStyle]="{'color': 'white'}">Helping students find internships</h4>
+<div fxLayout="row" *ngIf="!decisionMade">
+  <button mat-raised-button color="accent"  [ngStyle]="{'margin-right': '16px'}" (click)="newUser()">New User</button>
+  <button mat-raised-button color="accent" (click)="existingUser()">Existing User</button>
+</div>
+
+  <div *ngIf="isNewUser && !onboarded" fxLayout="column">
+    <form [formGroup] = "newUserForm" (ngSubmit)="newUserSubmit()"  fxLayout="column">
+      <div fxLayout="row>">
+      <mat-form-field appearance="fill" [ngStyle]="{'margin-right': '16px'}">
+        <mat-label>First Name</mat-label>
+        <input formControlName="firstName" matInput>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input formControlName="lastName" matInput>
+      </mat-form-field>
+    </div>
+      <div fxLayout="row>" >
+        <mat-form-field fxFlex="100%" appearance="fill">
+          <mat-label>School</mat-label>
+          <input formControlName="school" matInput>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row>">
+        <mat-form-field appearance="fill"  [ngStyle]="{'margin-right': '16px'}">
+          <mat-label>Education Start Date</mat-label>
+          <input formControlName="educationStartDate" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Graduation Date</mat-label>
+          <input formControlName="graduationDate" matInput>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row>">
+        <mat-form-field appearance="fill" [ngStyle]="{'margin-right': '16px'}">
+          <mat-label>Major</mat-label>
+          <input formControlName="major" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Degree</mat-label>
+          <input formControlName="degree" matInput>
+        </mat-form-field>
+      </div>
+      <div fxLayout="row>">
+        <mat-form-field appearance="fill" [ngStyle]="{'margin-right': '16px'}">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" formControlName="password" matInput>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="accent" type="submit">Submit</button>
+    </form>
+    </div>
+  <div *ngIf="onboarded">Please refresh the page and login!</div>
+  <div *ngIf="invalidLogin">Invalid credentials! Please refresh the page</div>
+  <div *ngIf="isExistingUser && !invalidLogin" fxLayout="column">
+    <form [formGroup] = "existingUserForm" (ngSubmit)="existingUserSubmit()"  fxLayout="column">
+      <div fxLayout="row>">
+        <mat-form-field appearance="fill" [ngStyle]="{'margin-right': '16px'}">
+          <mat-label>Email</mat-label>
+          <input formControlName="email" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+          <mat-label>Password</mat-label>
+          <input type="password" formControlName="password" matInput>
+        </mat-form-field>
+      </div>
+      <button mat-raised-button color="accent" type="submit">Log in</button>
+    </form>
+</div>
+
+
+</div>
+
+</body>
+
+

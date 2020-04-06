@@ -1,0 +1,24 @@
+
+<mat-card [ngStyle]="{'margin-bottom': '8px'}">
+  <div fxLayout="row">
+    <!--
+  <div fxLayoutAlign="start center" [ngStyle]="{'margin-right': '16px'}">
+    <img [ngStyle]="{'border-radius': '50%'}" src="https://media-exp1.licdn.com/dms/image/C5103AQEssqBg79ddvg/profile-displayphoto-shrink_100_100/0?e=1590019200&v=beta&t=0qfhi3djxG_6P74Z2_Cna15XBLkzxbMsFgGhG4fYy08" width="60" height="60">
+  </div>
+  -->
+    <div fxLayout="column" fxFlex="50%">
+      <mat-card-title>{{job.title}}</mat-card-title>
+      <mat-card-subtitle [ngStyle]="{'margin-bottom': '8px'}">{{companyName}}</mat-card-subtitle>
+      <mat-card-subtitle [ngStyle]="{'margin-bottom': '8px'}">{{job.location}}</mat-card-subtitle>
+      <mat-card-subtitle [ngStyle]="{'margin-bottom': '8px'}">{{job.jobLength}}</mat-card-subtitle>
+    </div>
+    <div fxLayoutAlign="end center"  [ngStyle]="{'margin-left': 'calc(10%)'}">
+       <button mat-raised-button color="accent" [ngStyle]="{'margin-right': '4px'}" (click)="viewDetailsDialog()">View Details</button>
+      <a mat-raised-button color="accent" href="{{job.jobApplicationUrl}}" target="_blank" [ngStyle]="{'margin-right': '4px'}">Apply on Website</a>
+      <button *ngIf="!saved" mat-raised-button color="accent" [ngStyle]="{'margin-right': '4px'}" (click)="saveJob()">Save</button>
+      <button *ngIf="saved" mat-raised-button color="accent" [ngStyle]="{'margin-right': '4px'}" (click)="unsaveJob()">Unsave</button>
+    </div>
+  </div>
+</mat-card>
+
+

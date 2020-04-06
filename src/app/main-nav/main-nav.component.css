@@ -8,9 +8,14 @@
 
 .sidenav .mat-toolbar {
   background: inherit;
+  color: white;
 }
 
 .mat-toolbar.mat-primary {
+  box-shadow: 0px 2px 8px #888888;
+  box-shadow: 0px 2px 8px #888888;
+  background:#ffffff;
+  color: #ffffff;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -23,7 +28,7 @@
 mat-toolbar a {
   display: inline-block;
   margin: 0 10px;
-  color: white;
+  color: black;
   text-decoration: none;
 }
 

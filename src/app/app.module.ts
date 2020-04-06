@@ -20,12 +20,19 @@ import {MatCardModule} from "@angular/material/card";
 import { ProfileEditDialogComponent } from './profile-edit-dialog/profile-edit-dialog.component';
 import {MatDialogModule} from "@angular/material";
 import {MatFormFieldModule} from "@angular/material/form-field";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {MatInput, MatInputModule} from "@angular/material/input";
 import { ExperienceEditDialogComponent } from './experience-edit-dialog/experience-edit-dialog.component';
 import { ExperienceAddDialogComponent } from './experience-add-dialog/experience-add-dialog.component';
 import {MatChipsModule} from "@angular/material/chips";
 import { AddSkillDialogComponent } from './add-skill-dialog/add-skill-dialog.component';
+import { JobCardComponent } from './job-card/job-card.component';
+import { LoginComponent } from './login/login.component';
+import { AdminComponent } from './admin/admin.component';
+import { MainViewComponent } from './main-view/main-view.component';
+import { HttpClientModule} from "@angular/common/http";
+import {MatSelectModule} from "@angular/material/select";
+import { JobDetailsComponent } from './job-details/job-details.component';
 
 @NgModule({
   declarations: [
@@ -37,29 +44,37 @@ import { AddSkillDialogComponent } from './add-skill-dialog/add-skill-dialog.com
     ProfileEditDialogComponent,
     ExperienceEditDialogComponent,
     ExperienceAddDialogComponent,
-    AddSkillDialogComponent
+    AddSkillDialogComponent,
+    JobCardComponent,
+    LoginComponent,
+    AdminComponent,
+    MainViewComponent,
+    JobDetailsComponent
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    LayoutModule,
-    MatToolbarModule,
-    MatButtonModule,
-    MatSidenavModule,
-    MatIconModule,
-    MatListModule,
-    AppRoutingModule,
-    RouterModule,
-    FlexLayoutModule,
-    MatCardModule,
-    MatDialogModule,
-    MatFormFieldModule,
-    FormsModule,
-    MatInputModule,
-    MatChipsModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        LayoutModule,
+        MatToolbarModule,
+        MatButtonModule,
+        MatSidenavModule,
+        MatIconModule,
+        MatListModule,
+        AppRoutingModule,
+        RouterModule,
+        FlexLayoutModule,
+        MatCardModule,
+        MatDialogModule,
+        MatFormFieldModule,
+        FormsModule,
+        MatInputModule,
+        MatChipsModule,
+        ReactiveFormsModule,
+        HttpClientModule,
+        MatSelectModule
+    ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ProfileEditDialogComponent, ExperienceEditDialogComponent, ExperienceAddDialogComponent, AddSkillDialogComponent],
+  entryComponents: [ProfileEditDialogComponent, ExperienceEditDialogComponent, ExperienceAddDialogComponent, AddSkillDialogComponent, JobDetailsComponent],
 })
 export class AppModule { }

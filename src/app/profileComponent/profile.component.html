@@ -1,13 +1,13 @@
 <div fxLayout="row" fxLayoutAlign="center center">
-    <mat-card [ngStyle]="{'margin-top': '32px',  'width': 'calc(100% - 120px)'}">
+    <mat-card [ngStyle]="{'margin-top': '32px',  'width': 'calc(85%)'}">
       <div fxLayout="row">
         <div fxLayoutAlign="center center" [ngStyle]="{'padding-right': '24px'}">
           <img [ngStyle]="{'border-radius': '50%'}" src="https://media-exp1.licdn.com/dms/image/C5103AQEssqBg79ddvg/profile-displayphoto-shrink_100_100/0?e=1590019200&v=beta&t=0qfhi3djxG_6P74Z2_Cna15XBLkzxbMsFgGhG4fYy08" width="120" height="120">
         </div>
         <div fxLayout="column">
-          <h1 [ngStyle]="{'margin-bottom': '0px'}">{{this.exampleUser.firstName}} {{this.exampleUser.lastName}}</h1>
-          <h4 [ngStyle]="{'margin-top': '8px', 'margin-bottom': '0px', 'font-weight': 'normal'}"> {{this.exampleUser.recentEducation}}, {{this.exampleUser.graduationDate}} </h4>
-          <h4 [ngStyle]="{'margin-top': '8px', 'margin-bottom': '8px', 'font-weight': 'normal'}"> {{this.exampleUser.degree}}, {{this.exampleUser.degreeName}}</h4>
+          <h1 [ngStyle]="{'margin-bottom': '0px'}">{{this.firstName}} {{this.lastName}}</h1>
+          <h4 [ngStyle]="{'margin-top': '8px', 'margin-bottom': '0px', 'font-weight': 'normal'}"> {{this.recentInstitution}}, {{this.graduationDate}} </h4>
+          <h4 [ngStyle]="{'margin-top': '8px', 'margin-bottom': '8px', 'font-weight': 'normal'}"> {{this.degreeLevel}}, {{this.programName}}</h4>
           <div>
             <button mat-stroked-button (click)="openEditDialog()">Edit Profile</button>
           </div>
@@ -16,28 +16,30 @@
     </mat-card>
   </div>
 
-<div fxLayout="row" fxLayoutAlign="start">
-  <mat-card  [ngStyle]="{'margin-top': '32px',  'width': 'calc(50%)', 'margin-left': '45px'}">
+<div fxLayout="row" fxLayoutAlign="center start">
+  <mat-card  [ngStyle]="{'margin-top': '32px',  'width': 'calc(50%)'}">
     <mat-card-header fxLayout="row">
       <mat-card-title [ngStyle]="{'font-weight': 'normal', 'width': 'calc(100%)'}">Experience <button mat-icon-button (click)="addExperienceEditDialog()" ><mat-icon >add_circle_outline</mat-icon></button></mat-card-title>
     </mat-card-header>
-    <div *ngFor="let experience of exampleUser.experience; let i = index" [ngStyle]="{'margin-bottom': '32px'  }" >
+    <div *ngFor="let experience of previousPositions; let i = index" [ngStyle]="{'margin-bottom': '32px'  }" >
       <mat-card-header>
-        <mat-card-title>{{experience.title}} <button mat-icon-button (click)="openExperienceEditDialog(experience)" ><mat-icon>create</mat-icon></button></mat-card-title>
-        <mat-card-subtitle>{{experience.company}}</mat-card-subtitle>
-        <mat-card-subtitle>{{experience.startDate}} - {{experience.endDate}}</mat-card-subtitle>
+        <mat-card-title>{{experience.positionName}} <button mat-icon-button (click)="openExperienceEditDialog(experience)" ><mat-icon>create</mat-icon></button><button mat-icon-button (click)="deleteExperience(experience.positionId)" ><mat-icon>close</mat-icon></button></mat-card-title>
+        <mat-card-subtitle>{{experience.companyName}}</mat-card-subtitle>
+        <mat-card-subtitle>{{experience.positionStartDate}} - {{experience.positionEndDate}}</mat-card-subtitle>
       </mat-card-header>
-      <mat-card-content [ngStyle]="{'margin-left': '16px'}">{{experience.description}}</mat-card-content>
+      <mat-card-content [ngStyle]="{'margin-left': '16px'}">{{experience.positionDescription}}</mat-card-content>
     </div>
   </mat-card>
-  <mat-card  [ngStyle]="{'margin-top': '32px',  'width': 'calc(30%)', 'margin-left': '20px'}">
+
+  <mat-card  [ngStyle]="{'margin-top': '32px',  'width': 'calc(30%)', 'margin-left': '3%'}">
     <mat-card-header fxLayout="row">
       <mat-card-title [ngStyle]="{'font-weight': 'normal', 'width': 'calc(100%)'}">Skills <button mat-icon-button (click)="addSkillDialog()" ><mat-icon >add_circle_outline</mat-icon></button></mat-card-title>
     </mat-card-header>
     <mat-chip-list>
-      <mat-chip *ngFor="let skill of exampleUser.skills">{{skill}}</mat-chip>
+      <mat-chip *ngFor="let skill of userSkills"><button mat-icon-button (click)="removeSkill(skill)" ><mat-icon >close</mat-icon></button>{{skill.tagName}}</mat-chip>
     </mat-chip-list>
   </mat-card>
+
 </div>
 
 
